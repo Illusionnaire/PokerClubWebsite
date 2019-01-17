@@ -1,0 +1,23 @@
+/* Colors
+Red #C32026 rgb(195,32,38)
+
+*/
+
+*
+{
+    margin:0;
+    padding:0;
+}
+
+#SPClogo
+{
+    display:block;
+    margin:auto;
+}
+
+.footer
+{
+    padding:15px 40px 15px 0px;
+    text-align:right;
+    background-color:#C32026;
+}

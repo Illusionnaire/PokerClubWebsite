@@ -33,14 +33,12 @@ body {
 }
 
 .timer-container {
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
     padding:0px 100px;
     font-family: 'Luckiest Guy', sans-serif;
     max-width:1000px;
     margin:auto;
     display: grid;
-  grid-template-columns: 10px 1fr 1fr 10px;
+  grid-template-columns: 20px 1fr 1fr 20px;
   grid-template-rows: 1fr 5fr 2fr;
   grid-template-areas:
     ".    title   title  ."
@@ -104,7 +102,6 @@ body {
     background-color:rgba(0,0,0,0);
     color: #FFF;
     border: none;
-    transform: translateZ(50px);
 }
 
 .timer-button {
@@ -114,23 +111,20 @@ body {
     font-size: 1.2em;
     background-color:#fff;
     border: 5px solid #C32026;
-    transform: translateZ(25px);
  }
 
 .progress-div-min {
      grid-area:progmin;
      background-color:rgba(166,32,38, .25);
-     width:100%;
+     width:50%;
      height:100%;
-     transform: translateZ(50px);
  }
 
 .progress-div-sec {
     grid-area:progsec;
     background-color:rgba(166,32,38, .25);
-    width:100%;
+    width:50%;
     height:100%;
-    transform: translateZ(50px);
 }
 
 #minute-progress {
@@ -141,7 +135,6 @@ body {
     -moz-transition: 0.5s ease;
     -o-transition: 0.5s ease;
     transition: 0.5s ease;
-    
 }
 
 #second-progress {
@@ -152,7 +145,6 @@ body {
     -moz-transition: 0.5s ease;
     -o-transition: 0.5s ease;
     transition: 0.5s ease;
-    
 }
 
 /*Hides number input spinners and outlines on selected items*/

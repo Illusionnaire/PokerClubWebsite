@@ -9,9 +9,6 @@ var seconds;
 var startseconds;
 var timeElapsed = 0;
 
-
-
-
 startBtn.addEventListener('click',startClick,false);
 resetBtn.addEventListener('click',endClick,false);
 inputseconds.addEventListener('keyup',function(e){

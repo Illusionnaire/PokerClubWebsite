@@ -1,33 +1,64 @@
 const startBtn = document.querySelector("#start-timer");
 const resetBtn = document.querySelector("#reset-timer");
-boolean running = false;
+const inputminutes = document.querySelector("#minutestimer span");
+const inputseconds = document.querySelector("#secondstimer span");
+var running = false;
+var seconds;
+var timeElapsed = 0;
 
 startBtn.addEventListener('click',startClick,false);
 resetBtn.addEventListener('click',endClick,false);
 
 function startClick(){
-    timercounter = setInterval(() => {
-        var minutes = document.querySelector("#minutestimer span");
-        var seconds = document.querySelector("#secondstimer span");
+    seconds = Number(inputminutes.innerHTML)*60 + Number(inputseconds.innerHTML);
+    if (!running && seconds > 0){
+        countDown(seconds);
+        startBtn.style.backgroundColor = "#C32026";
+        startBtn.style.border = "none";
+        startBtn.style.color = "#FFF";
+         }
+    running = true;
+}
 
-        if (seconds.innerHTML == 0 && minutes.innerHTML == 0) {
-            console.log("Finished");
-        }
-        else if(seconds.innerHTML != 0){
-            seconds.innerHTML -= 1;
-        }
-        else{
-            minutes.innerHTML -= 1;
-            seconds.innerHTML = 59;
-        }
+function countDown(seconds){
 
-    }, 1000);
-    console.log(timercounter);
+        timeElapsed = setInterval(() => {
+            seconds--;
+            setHTML(seconds);
+
+            //Flicker for less than one minute
+            if (seconds < 60){
+                if (seconds % 2 == 0){
+                    inputseconds.style.color = "white";
+                }
+                else {
+                    inputseconds.style.color = "black";
+                }
+            }
+            
+            //When finished reset and play sound
+            if (seconds == 0){
+                endClick();
+                var a = new Audio('sound.mp3');
+                a.play();
+                setTimeout( function() {
+                }, 5000);
+            }
+        }, 1000);
 }
 
 function endClick(){
-        seconds.innerHTML = "00";
-        minutes.innerHTML = "00";   
-        clearInterval(timercounter);
+        seconds = 0;  
+        clearInterval(timeElapsed);
+        running = false;
+        setHTML(seconds);
+        startBtn.style.backgroundColor = "#FFF";
+        startBtn.style.border = "5px solid #C32026";
+        startBtn.style.color = "#000";
+}
+
+function setHTML(seconds){
+        inputminutes.innerHTML = Math.floor(seconds/60);
+        inputseconds.innerHTML = seconds - Math.floor(seconds/60)*60;
 }
 

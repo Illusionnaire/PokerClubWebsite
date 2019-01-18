@@ -106,9 +106,3 @@ body {
    border: 5px solid #C32026;
 }
 
-.timer-button:active {
-    background-color:#C32026;
-    border:none;
-    color:#fff;
-}
-

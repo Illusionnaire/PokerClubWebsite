@@ -1,16 +1,26 @@
 const startBtn = document.querySelector("#start-timer");
 const resetBtn = document.querySelector("#reset-timer");
-const inputminutes = document.querySelector("#minutestimer span");
-const inputseconds = document.querySelector("#secondstimer span");
+const inputminutes = document.querySelector("#minutestimer input");
+const inputseconds = document.querySelector("#secondstimer input");
 var running = false;
 var seconds;
 var timeElapsed = 0;
 
+
+
+
 startBtn.addEventListener('click',startClick,false);
 resetBtn.addEventListener('click',endClick,false);
+inputseconds.addEventListener('keyup',function(e){
+    e.preventDefault();
+    if (e.keyCode === 13){
+        startClick();
+    }
+},false);
 
 function startClick(){
-    seconds = Number(inputminutes.innerHTML)*60 + Number(inputseconds.innerHTML);
+    //Insert value of seconds into variable for future math purposes and check that no other instance is running.
+    seconds = Number(inputminutes.value)*60 + Number(inputseconds.value);
     if (!running && seconds > 0){
         countDown(seconds);
         startBtn.style.backgroundColor = "#C32026";
@@ -35,7 +45,7 @@ function countDown(seconds){
                     inputseconds.style.color = "black";
                 }
             }
-            
+
             //When finished reset and play sound
             if (seconds == 0){
                 endClick();
@@ -51,14 +61,15 @@ function endClick(){
         seconds = 0;  
         clearInterval(timeElapsed);
         running = false;
-        setHTML(seconds);
+        inputminutes.value="";
+        inputseconds.value="";
         startBtn.style.backgroundColor = "#FFF";
         startBtn.style.border = "5px solid #C32026";
         startBtn.style.color = "#000";
 }
 
 function setHTML(seconds){
-        inputminutes.innerHTML = Math.floor(seconds/60);
-        inputseconds.innerHTML = seconds - Math.floor(seconds/60)*60;
+        inputminutes.value = Math.floor(seconds/60);
+        inputseconds.value = seconds - Math.floor(seconds/60)*60;
 }
 

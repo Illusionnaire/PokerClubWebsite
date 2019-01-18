@@ -18,11 +18,16 @@
     <div class="timer-container">
         <h1>Countdown Timer</h1>
             <div id="minutestimer" class="outertimediv">
-                <div class="innertimediv"><span id="minutes">0</span></div>
+                <div class="innertimediv">
+                    <input type="number" id="minutes" placeholder="00" min="0"></input>
+                </div>
                 <span>Minutes</span>
+                
             </div>
             <div id="secondstimer" class="outertimediv">
-                <div class="innertimediv"><span id="seconds">10</span></div>
+                <div class="innertimediv">
+                    <input type="number" id="seconds" placeholder="00" min="0" max="60"></input>
+                </div>
                 <span>Seconds</span>
             </div>
         <button class="timer-button" id="start-timer">Start</button>

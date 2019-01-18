@@ -15,20 +15,26 @@
     <img id="SPClogo" src="images/SPClogo.png">
     
     <!--Section 1: Timer-->
-    <div class="timer-container">
+    <div class="timer-container" data-tilt data-tilt-max="28" data-tilt-glare data-tilt-max-glare=".2">
         <h1>Countdown Timer</h1>
             <div id="minutestimer" class="outertimediv">
                 <div class="innertimediv">
                     <input type="number" id="minutes" placeholder="00" min="0"></input>
                 </div>
                 <span>Minutes</span>
-                
             </div>
+            <div class="progress-div-min">
+                <div id="minute-progress"></div>
+            </div>
+
             <div id="secondstimer" class="outertimediv">
                 <div class="innertimediv">
                     <input type="number" id="seconds" placeholder="00" min="0" max="60"></input>
                 </div>
                 <span>Seconds</span>
+            </div>
+            <div class="progress-div-sec">
+                <div id="second-progress"></div>
             </div>
         <button class="timer-button" id="start-timer">Start</button>
         <button class="timer-button" id="reset-timer">Reset</button>
@@ -42,6 +48,8 @@
             <a href="https://ducklink.stevens.edu/organization/stevens-poker-club"><img src="images/ducklinkicon.png" width=100px></a>
         </td>
     </footer>
-    </body>
+    <script type="text/javascript" src="vanilla-tilt.js"></script>
     <script src="main.js"></script>
+    </body>
+    
 </html>

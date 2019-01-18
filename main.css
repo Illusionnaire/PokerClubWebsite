@@ -72,8 +72,8 @@ body {
 .outertimediv {
     display:flex;
     flex-flow: row wrap;
-    height:80%;
-    width:80%;
+    height:90%;
+    width:90%;
     background-color:#C32026;
     color: #000;
     text-align:center;
@@ -102,7 +102,13 @@ body {
    height:80%;
    font-family: 'Luckiest Guy', sans-serif;
    font-size: 1.2em;
-   background-color:#C32026;
-   border: none;
+   background-color:#fff;
+   border: 5px solid #C32026;
+}
+
+.timer-button:active {
+    background-color:#C32026;
+    border:none;
+    color:#fff;
 }
 

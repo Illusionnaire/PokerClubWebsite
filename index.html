@@ -16,12 +16,19 @@
     <img id="SPClogo" src="images/SPClogo.png">
     
     <!--Section 1: Timer-->
-    <h1>Timer</h1>
-    <span class="Timer" id="hourstimer">10</span>
-    <span class="Timer">:</span>
-    <span class ="Timer" id="minutestimer">10</span>
-    <button>Start</button>
-
+    <div class="timer-container">
+        <h1>Countdown Timer</h1>
+            <div id="minutestimer" class="outertimediv">
+                <div class="innertimediv"><span id="minutes">10</span></div>
+                <span>Minutes</span>
+            </div>
+            <div id="secondstimer" class="outertimediv">
+                <div class="innertimediv"><span id="seconds">10</span></div>
+                <span>Seconds</span>
+            </div>
+        <button class="timer-button" id="start-timer">Start</button>
+        <button class="timer-button" id="reset-timer">Reset</button>
+    </div>
 
     <footer class="footer">
         <td>

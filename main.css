@@ -9,9 +9,19 @@ Red #C32026 rgb(195,32,38)
     padding:0;
 }
 
+body {
+    display:grid;
+    height:100%;
+    grid-template-rows:200px 1fr 60px;
+    grid-template-areas:
+    "logo"
+    "timer"
+    "footer";
+}
+
 #SPClogo
 {
-    display:block;
+    height:100%;
     margin:auto;
 }
 
@@ -21,3 +31,78 @@ Red #C32026 rgb(195,32,38)
     text-align:right;
     background-color:#C32026;
 }
+
+.timer-container {
+    font-family: 'Luckiest Guy', sans-serif;
+    max-width:500px;
+    margin:auto;
+    display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 4fr 2fr;
+  grid-template-areas:
+    "title   title"
+    "time1    time2"
+    "start   reset";
+    justify-items: center;
+    align-items: center;
+}
+
+.timer-container h1 {
+    grid-area: title;
+    font-size:2em;
+    color: #000;
+}
+
+#minutestimer {
+    grid-area: time1;
+}
+
+#secondstimer {
+    grid-area: time2;
+}
+
+#start-timer {
+    grid-area: start;
+}
+
+#reset-timer {
+    grid-area: reset;
+}
+
+.outertimediv {
+    display:flex;
+    flex-flow: row wrap;
+    height:80%;
+    width:80%;
+    background-color:#C32026;
+    color: #000;
+    text-align:center;
+}
+
+.outertimediv > * {
+    flex:1 100%;
+}
+
+.innertimediv {
+    display:flex;
+    height: 80%;
+    margin:auto;
+    width: 100%;
+    background-color:rgba(0,0,0, .15);
+    color: #FFF;
+}
+
+.innertimediv span {
+    font-size: 4em;
+    margin:auto;
+}
+
+.timer-button {
+   width:80%; 
+   height:80%;
+   font-family: 'Luckiest Guy', sans-serif;
+   font-size: 1.2em;
+   background-color:#C32026;
+   border: none;
+}
+

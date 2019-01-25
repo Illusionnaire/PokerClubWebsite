@@ -21,18 +21,21 @@ body {
 
 #SPClogo
 {
+    grid-area:logo;
     height:100%;
     margin:auto;
 }
 
 .footer
 {
+    grid-area:footer;
     padding:15px 40px 15px 0px;
     text-align:right;
     background-color:#C32026;
 }
 
 .timer-container {
+    grid-area:timer;
     padding:0px 100px;
     font-family: 'Luckiest Guy', sans-serif;
     max-width:1000px;

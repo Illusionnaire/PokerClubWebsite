@@ -12,11 +12,11 @@ Red #C32026 rgb(195,32,38)
 body {
     display:grid;
     height:100%;
-    grid-template-rows:200px 1fr 1fr 60px;
+    grid-template-rows:200px 1.5fr 1fr 60px;
     grid-template-areas:
     "logo"
     "timer"
-    "blinds"
+    "tables"
     "footer";
 }
 
@@ -34,6 +34,61 @@ body {
     text-align:right;
     background-color:#C32026;
 }
+
+.table-container{
+    grid-area:tables;
+    padding:50px 100px;
+    font-family: 'Luckiest Guy', sans-serif;
+    margin:auto;
+    display: grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-areas:
+    "chipvalue  blinds";
+    justify-items: center;
+    align-items: center;
+}
+
+.blinds-container {
+    grid-area:blinds;
+}
+    
+.chipvalue-container {
+    grid-area:chipvalue;
+}
+
+.table-container div table {
+    letter-spacing: 3px;
+    font-size: 1.2em;
+    border: solid 3px #000;
+    border-spacing: 0px;
+}
+
+.table-container div table tr th {
+    padding: 10px;
+}
+
+.table-container div table tr:first-child{
+    color:#000;
+    background-color:rgba(195,32,38,1);
+}
+
+.blinds-table tr th input {
+    
+}
+
+.chipvalue-container table tr th:nth-child(even) {
+    text-align: right;
+}
+
+.chipvalue-container table tr th:nth-child(odd) {
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color:rgba(0,0,0,.1);
+  }
+
+
 
 .timer-container {
     grid-area:timer;

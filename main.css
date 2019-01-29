@@ -12,10 +12,11 @@ Red #C32026 rgb(195,32,38)
 body {
     display:grid;
     height:100%;
-    grid-template-rows:200px 1fr 60px;
+    grid-template-rows:200px 1fr 1fr 60px;
     grid-template-areas:
     "logo"
     "timer"
+    "blinds"
     "footer";
 }
 
@@ -42,11 +43,12 @@ body {
     margin:auto;
     display: grid;
   grid-template-columns: 20px 1fr 1fr 20px;
-  grid-template-rows: 1fr 5fr 2fr;
+  grid-template-rows: 1fr 5fr 2fr 2fr;
   grid-template-areas:
-    ".    title   title  ."
+    ".  title   title  ."
     "progmin    time1   time2  progsec"
-    ".    start   reset  .";
+    ".  pause   reset   ."
+    ".  start   start   .";
     justify-items: center;
     align-items: center;
 }
@@ -71,6 +73,10 @@ body {
 
 #reset-timer {
     grid-area: reset;
+}
+
+#pause-timer {
+    grid-area: pause; 
 }
 
 .outertimediv {

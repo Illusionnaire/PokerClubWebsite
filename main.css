@@ -72,10 +72,6 @@ body {
     background-color:rgba(195,32,38,1);
 }
 
-.blinds-table tr th input {
-    
-}
-
 .chipvalue-container table tr th:nth-child(even) {
     text-align: right;
 }

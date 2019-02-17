@@ -13,11 +13,11 @@ body {
     display:grid;
     height:100%;
     grid-template-rows:200px 1.5fr 1fr 60px;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
-    "logo"
-    "timer"
-    "tables"
-    "footer";
+    "logo logo"
+    "timer tables"
+    "footer footer";
 }
 
 #SPClogo
@@ -69,7 +69,7 @@ body {
 
 .table-container div table tr:first-child{
     color:#000;
-    background-color:rgba(195,32,38,1);
+    background-color:#A62026;
 }
 
 .chipvalue-container table tr th:nth-child(even) {
@@ -98,8 +98,7 @@ tr:nth-child(even) {
   grid-template-areas:
     ".  title   title  ."
     "progmin    time1   time2  progsec"
-    ".  pause   reset   ."
-    ".  start   start   .";
+    ".  start   pause   .";
     justify-items: center;
     align-items: center;
 }
@@ -120,10 +119,6 @@ tr:nth-child(even) {
 
 #start-timer {
     grid-area: start;
-}
-
-#reset-timer {
-    grid-area: reset;
 }
 
 #pause-timer {
@@ -219,4 +214,7 @@ input:focus {outline:0;}
     opacity: 1; /* Firefox */
   }
 
+#blinds-table-start {
+    background-color: #C32026;
+}
 

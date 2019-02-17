@@ -5,17 +5,19 @@ const inputminutes = document.querySelector("#minutestimer input");
 const inputseconds = document.querySelector("#secondstimer input");
 const secProgress = document.querySelector("#second-progress");
 const minProgress = document.querySelector("#minute-progress");
+const timerTable = document.querySelector(".blinds-table");
+const timerInnerTable = timerTable.childNodes[1].childNodes;
+
 var running = false;
 var seconds;
 var startseconds;
 var timeElapsed = 0;
 var firstTime = true;
+var tableRow = 2;   
+var oldbackground;
 
 startBtn.addEventListener('click',startClick,false);
-resetBtn.addEventListener('click',endClick,false);
 pauseBtn.addEventListener('click',pauseClick,false);
-
-
 inputseconds.addEventListener('keyup',function(e){
     e.preventDefault();
     if (e.keyCode === 13){
@@ -23,13 +25,15 @@ inputseconds.addEventListener('keyup',function(e){
     }
 },false);
 
+
+//Initialize Timer at Largest Table Value
+setHTML(timerInnerTable[tableRow].childNodes[1].innerHTML * 60);
+tableRow+= 2;
+
 function startClick(){
     //Insert value of seconds into variable for future math purposes and check that no other instance is running.
     seconds = Number(inputminutes.value)*60 + Number(inputseconds.value);
-    if (firstTime){
-    startseconds = seconds;
-    firstTime = false;
-    }
+
     if (!running && seconds > 0){
         running = true;
         countDown(seconds);
@@ -42,7 +46,6 @@ function startClick(){
          }
     
 }
-
 function pauseClick(){
     if(running){
     clearInterval(timeElapsed);
@@ -55,7 +58,6 @@ function pauseClick(){
     pauseBtn.style.color = "#FFF";
     }
 }
-
 function countDown(seconds){
 
         timeElapsed = setInterval(() => {
@@ -74,16 +76,29 @@ function countDown(seconds){
 
             //When finished reset and play sound
             if (seconds == 0){
-                firstTime = true;
                 endClick();
+                if (tableRow == 4){
+                    setHTML(timerInnerTable[tableRow].childNodes[1].innerHTML * 60);
+                    timerInnerTable[tableRow-2].style.backgroundColor = "rgba(0,0,0,.1)";
+                    oldbackground = timerInnerTable[tableRow].style.backgroundColor;
+                    timerInnerTable[tableRow].style.backgroundColor = "#C32026";
+                }
+                else {
+                    setHTML(timerInnerTable[tableRow].childNodes[1].innerHTML * 60);
+                    timerInnerTable[tableRow-2].style.backgroundColor = oldbackground;
+                    oldbackground = timerInnerTable[tableRow].style.backgroundColor;
+                    timerInnerTable[tableRow].style.backgroundColor = "#C32026";
+                }
+                
+                tableRow+= 2;
                 var a = new Audio('sound.mp3');
                 a.play();
                 setTimeout( function() {
                 }, 5000);
+                startClick();
             }
         }, 1000);
 }
-
 function endClick(){
         seconds = 0;  
         clearInterval(timeElapsed);
@@ -100,13 +115,14 @@ function endClick(){
         pauseBtn.style.border = "5px solid #C32026";
         pauseBtn.style.color = "#000";
 }
-
 function setHTML(seconds){
         inputminutes.value = Math.floor(seconds/60);
         inputseconds.value = seconds - Math.floor(seconds/60)*60;
 
-        console.log(seconds);
-        console.log(startseconds);
+        if (firstTime){
+            startseconds = seconds;
+            firstTime = false;
+        }
 
         minProgress.style.height = (seconds / startseconds * 100) + "%";
         secProgress.style.height = (inputseconds.value / 60 * 100) + "%";

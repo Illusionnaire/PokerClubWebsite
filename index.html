@@ -20,7 +20,7 @@
         <h1>Countdown Timer</h1>
             <div id="minutestimer" class="outertimediv">
                 <div class="innertimediv">
-                    <input type="number" id="minutes" placeholder="00" min="0"></input>
+                    <input type="number" id="minutes" placeholder="00" min="0" value="25"></input>
                 </div>
                 <span>Minutes</span>
             </div>
@@ -39,7 +39,6 @@
             </div>
         <button class="timer-button" id="start-timer">Start</button>
         <button class="timer-button" id="pause-timer">Pause</button>
-        <button class="timer-button" id="reset-timer">Reset</button>
     </div>
 
     <div class="table-container">
@@ -78,84 +77,72 @@
                     <th>Small Blind</th>
                     <th>Big Blind</th>
                     <th>Ante</th>
-                    <th></th>
                 </tr>
-                <tr>
+                <tr id="blinds-table-start">
                     <th>25</th>
                     <th>25</th>
                     <th>50</th>
                     <th>N/A</th>
-                    <th class="checkmark-container"><input type="checkbox" checked="checked"></th>
                 </tr>
                 <tr>
                     <th>30</th>
                     <th>50</th>
                     <th>100</th>
                     <th>N/A</th>
-                    <th class="checkmark-container"><input type="checkbox"></th>
                 </tr>
                 <tr>
                     <th>45</th>
                     <th>100</th>
                     <th>250</th>
                     <th>25</th>
-                    <th class="checkmark-container"><input type="checkbox"></th>
                 </tr>
                 <tr>
                     <th>30</th>
                     <th>250</th>
                     <th>500</th>
                     <th>50</th>
-                    <th class="checkmark-container"><input type="checkbox"></th>
                 </tr>
                 <tr>
                     <th>25</th>
                     <th>300</th>
                     <th>600</th>
                     <th>50</th>
-                    <th class="checkmark-container"><input type="checkbox"></th>
                 </tr>
                 <tr>
                     <th>25</th>
                     <th>500</th>
                     <th>1000</th>
                     <th>100</th>
-                    <th class="checkmark-container"><input type="checkbox"></th>
                 </tr>
                 <tr>
                     <th>20</th>
                     <th>750</th>
                     <th>1500</th>
                     <th>100</th>
-                    <th class="checkmark-container"><input type="checkbox"></th>
                 </tr>
                 <tr>
                     <th>20</th>
                     <th>1000</th>
                     <th>2000</th>
                     <th>200</th>
-                    <th class="checkmark-container"><input type="checkbox"></th>
                 </tr>
                 <tr>
                     <th>20</th>
                     <th>2000</th>
                     <th>4000</th>
                     <th>250</th>
-                    <th class="checkmark-container"><input type="checkbox"></th>
                 </tr>
                 <tr>
                     <th>15</th>
                     <th>4000</th>
                     <th>8000</th>
                     <th>500</th>
-                    <th class="checkmark-container"><input type="checkbox"></th>
                 </tr>
                 <tr>
                     <th>10</th>
                     <th>5000</th>
                     <th>10000</th>
                     <th>500</th>
-                    <th class="checkmark-container"><input type="checkbox"></th>
                 </tr>
             </table>
         </div>
@@ -169,7 +156,6 @@
             <a href="https://ducklink.stevens.edu/organization/stevens-poker-club"><img src="images/ducklinkicon.png" width=100px></a>
         </td>
     </footer>
-    <script type="text/javascript" src="vanilla-tilt.js"></script>
     <script src="main.js"></script>
     </body>
     

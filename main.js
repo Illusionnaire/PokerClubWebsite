@@ -81,13 +81,13 @@ function countDown(seconds){
                     setHTML(timerInnerTable[tableRow].childNodes[1].innerHTML * 60);
                     timerInnerTable[tableRow-2].style.backgroundColor = "rgba(0,0,0,.1)";
                     oldbackground = timerInnerTable[tableRow].style.backgroundColor;
-                    timerInnerTable[tableRow].style.backgroundColor = "#C32026";
+                    timerInnerTable[tableRow].style.backgroundColor = "rgba(195,32,38,0.4)";
                 }
                 else {
                     setHTML(timerInnerTable[tableRow].childNodes[1].innerHTML * 60);
                     timerInnerTable[tableRow-2].style.backgroundColor = oldbackground;
                     oldbackground = timerInnerTable[tableRow].style.backgroundColor;
-                    timerInnerTable[tableRow].style.backgroundColor = "#C32026";
+                    timerInnerTable[tableRow].style.backgroundColor = "rgba(195,32,38,0.4)";
                 }
                 
                 tableRow+= 2;
